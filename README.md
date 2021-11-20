@@ -1,79 +1,45 @@
+# ELT Pipeline in Datalake
 
-# Title Of Your Project
-Add a catchy title to your project. Something that people immediately know what you are doing well
-
-# Introduction & Goals
-- Introduce your project to the reader
-- Orient this section on the Table of contents
-- Write this like an executive summary
-  - With what data are you working
-  - What tools are you using
-  - What are you doing with these tools
-  - Once you are finished add the conclusion here as well
-
-# Contents
-
-- [The Data Set](#the-data-set)
-- [Used Tools](#used-tools)
-  - [Connect](#connect)
-  - [Buffer](#buffer)
-  - [Processing](#processing)
-  - [Storage](#storage)
-  - [Visualization](#visualization)
-- [Pipelines](#pipelines)
-  - [Stream Processing](#stream-processing)
-    - [Storing Data Stream](#storing-data-stream)
-    - [Processing Data Stream](#processing-data-stream)
-  - [Batch Processing](#batch-processing)
-  - [Visualizations](#visualizations)
-- [Demo](#demo)
-- [Conclusion](#conclusion)
-- [Follow Me On](#follow-me-on)
-- [Appendix](#appendix)
+## ELT - Extract Load Transform pipeline into a single datalake location on AWS platform.
 
 
-# The Data Set
-- Explain the data set
-- Why did you choose it?
-- What do you like about it?
-- What is problematic?
-- What do you want to do with it?
+# Diagram
+<img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/diagram.png" width="700">
 
-# Used Tools
-- Explain which tools do you use and why
-- How do they work (don't go too deep into details, but add links)
-- Why did you choose them
-- How did you set them up
+## Introduction & Goals
+- Process transaction files to a single location
+- Load Data from RDBMS to Data lake
+  - Data set of customer list of sales person
+  - We use AWS Glue 
+  - Create Data Catalog, transform, load to Data lake
+  - Data will be transform from csv to parquet.
 
-## Connect
-## Buffer
-## Processing
-## Storage
-## Visualization
+
+## The Data Set
+- We use transaction data set "customer.csv" 
+- Data set of customer list of sales person
+- appropiate size 197 KB for Glue ETL demo
+
+
+## Used Tools
+- **Amazon RDS postgreSQL, AWS Glue, Glue crawler, Athena**
+  - Load .csv file RDS into *input folder* inside a bucket.
+	  - Create *output folder* as target inside the same bucket.
+  - Add Glue crawler to craw Data catalog of  .csv file ( in *input folder*)
+	  - run Glue job to transform to parquet file  
+	  - Set target to load into *output folder* 
+  - In Athena, check view or query of transformed file. 
+  - Add Glue crawler to craw Data catalog of .parquet file in (output folder).
 
 # Pipelines
-- Explain the pipelines for processing that you are building
-- Go through your development and add your source code
+- Batch processing pipeline for bulk import.
+- Use source code of AWS Glue
 
-## Stream Processing
-### Storing Data Stream
-### Processing Data Stream
-## Batch Processing
-## Visualizations
+## Conclusion
+- Data set has transform inside a single datalake bucket
+- File can be loading to Data Warehouse.
+- Glue job can be assign for aggregate , join, filter tables
 
-# Demo
-- You could add a demo video here
-- Or link to your presentation video of the project
 
-# Conclusion
-Write a comprehensive conclusion.
-- How did this project turn out
-- What major things have you learned
-- What were the biggest challenges
-
-# Follow Me On
-Add the link to your LinkedIn Profile
-
-# Appendix
-
-[Markdown Cheat Sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+## Follow Me On
+https://www.linkedin.com/in/jirasak-pakdeeto-900665214/
