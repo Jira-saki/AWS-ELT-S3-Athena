@@ -36,10 +36,12 @@
   
   - Add Glue crawler to craw Data catalog of  .csv file ( in *input folder*)
   <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/crawler.png" width="800">
-	  - run Glue job to transform to parquet file  
+	  
+	- run Glue job to transform to parquet file  
+  
   <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/glue-job.png" width="800">
 	 
-	 - Set target to load into *output folder* 
+	- Set target to load into *output folder* 
   
   <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/parquet-output.png" width="800">
  
