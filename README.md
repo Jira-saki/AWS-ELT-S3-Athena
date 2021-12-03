@@ -4,10 +4,10 @@
 
 
 # Diagram
-<img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/diagram.png" width="700">
+<img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/diagram.png" width="700">
 
 ## Introduction & Goals
-- Ingest Data from RDBMS to a Data lake bucket. 
+- Ingest Data from RDS to a Datalake S3 bucket. 
 - Process transaction files to a single location
   - Data set of customer list of sales person
   - We use [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html") 
