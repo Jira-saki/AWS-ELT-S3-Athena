@@ -25,38 +25,38 @@
 
 ## Used Tools
 - **Amazon RDS postgreSQL, AWS Glue, Glue crawler, [Athena](https://aws.amazon.com/athena/?nc=sn&loc=1&whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc")**
-  - Load .csv file RDS into *input folder* inside a bucket.
+  - Load .csv file from RDS into *input folder* inside a bucket.
   - Create *output folder* as target inside the same bucket.
   
-  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/makebucket.png" width="800">
+  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/makebucket.png" width="800">
   
 
-  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/loadfile.png" width="800">
+  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/loadfile.png" width="800">
 	  
   
   - Add Glue crawler to craw Data catalog of  .csv file ( in *input folder*)
-  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/crawler.png" width="800">
+  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/crawler.png" width="800">
 	  
 	- run Glue job to transform to parquet file  
   
-  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/glue-job.png" width="800">
+  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/glue-job.png" width="800">
 	 
 	- Set target to load into *output folder* 
   
-  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/parquet-output.png" width="800">
+  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/parquet-output.png" width="800">
  
  - In Athena, check view or query of transformed file. 
  
  - Add Glue crawler to craw Data catalog of .parquet file in (output folder).
-  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/transformed-data.png" width="800">
+  <img src="https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/transformed-data.png" width="800">
 
 # Pipelines
 - Batch processing pipeline for bulk import.
-- Use [source code](https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/glue-job.py) of AWS Glue
+- Use [source code](https://github.com/Jira-saki/AWS-ELT-S3-Athena/blob/main/image/glue-job.py) of AWS Glue
 
 ## Conclusion
 - Data set has transform inside a single datalake bucket
-- File can be loading later to Data Warehouse for analysis purpose.
+- Transformed file can be copied to Data Warehouse for analysis purpose.
 - Glue job can be assign for aggregate , join, filter tables
 
 
