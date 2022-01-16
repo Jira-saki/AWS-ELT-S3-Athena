@@ -56,7 +56,7 @@
 
 ## Conclusion
 - Data set has transform inside a single datalake bucket
-- Transformed file can be copied to Data Warehouse for analysis purpose.
+- Transformed data can be directly analysis with AWS Athena (or Redshift Spectrum)
 - Glue job can be assign for aggregate , join, filter tables
 
 
